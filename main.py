@@ -5,29 +5,15 @@ import matplotlib.pyplot as plt
 df = pd.read_csv('insurance.csv')
 df_shape = df.shape
 
-print(f"{df_shape[0]} rows and {df_shape[1]} columns in this dataset.")
-
-print()
+print(f"{df_shape[0]} rows and {df_shape[1]} columns in this dataset.\n")
 
 for col in df:
-    print(f"{col} count: {df[col].count()}")
-
-print()
-
-for col in df:
-    print(f"{col} unique values: {df[col].nunique()}")
-
-print()
-
-for col in df:
-    print(f"{col} data type: {df[col].dtype}")
-
-print()
-
-for col in df:
-    print(f"number of missing data for {col} column: {df[col].isnull().sum()}")
-
-print()
+    print(f"""{col.capitalize()} Series contains:
+{col} count: {df[col].count()}
+{col} unique values: {df[col].nunique()}
+{col} data type: {df[col].dtype}
+number of missing data for {col} column: {df[col].isnull().sum()}
+""")
 
 print(f"Minimum of charges: {df.charges.min()}")
 print(f"Low 25% of charges: {df.charges.quantile(.25)}")
@@ -36,9 +22,7 @@ print(f"Low 75% of charges: {df.charges.quantile(.75)}")
 print(f"Mean: {df.charges.mean()}")
 print(f"Median: {df.charges.median()}")
 print(f"Mode: {df.charges.mode().values[0]}")
-print(f"Maximum of charges: {df.charges.max()}")
-
-print()
+print(f"Maximum of charges: {df.charges.max()}\n")
 
 print(f"Standard deviation: {df.charges.std()}")
 print(f"Skewness: {df.charges.skew()}")
